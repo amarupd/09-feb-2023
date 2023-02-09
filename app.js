@@ -1,5 +1,6 @@
 const express=require('express')
 const Joi=require('joi')
+const api=require('./header')
 const { validateSignup } = require('./validator')
 const app=express()
 const port=process.env.port || 5300
@@ -18,17 +19,12 @@ app.post("/signup",(req,res)=>{
 const axios = require("axios");
 
 
-const api=(req,res)=>{
-    const axios = require("axios");
 
     const options = {
       method: 'POST',
       url: 'https://nexmo-nexmo-sms-verify-v1.p.rapidapi.com/send-verification-code',
-      params: {phoneNumber: '<REQUIRED>', brand: '<REQUIRED>'},
-      headers: {
-        'X-RapidAPI-Key': '2d584490d7msh9f933009904afcfp1592a7jsn4568e2eef33c',
-        'X-RapidAPI-Host': 'nexmo-nexmo-sms-verify-v1.p.rapidapi.com'
-      }
+      params: {phoneNumber: '+917272096364', brand: 'myApp.com'},
+      headers: api
     };
     
     axios.request(options).then(function (response) {
@@ -36,7 +32,7 @@ const api=(req,res)=>{
     }).catch(function (error) {
         console.error(error);
     });
-}
+
 // app.post("/otp",(req,res)=>{
 //     const phoneNumber=req.body.phoneNumber
 //     const options = {
