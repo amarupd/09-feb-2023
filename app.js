@@ -13,6 +13,7 @@ app.post("/signup",(req,res)=>{
         return res.send(error.details)
     }
     res.send('signed up succesfully');
+    console.log(value);
 })
 
 app.listen(port,()=>{
