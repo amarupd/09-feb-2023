@@ -7,8 +7,8 @@ const signupSchema = Joi.object({
     password: Joi.string().min(5).max(15).required(),
     confirmPassword: Joi.ref('password'),
     fullName: Joi.string().required(),
-    mobileNumber: Joi.number().max(10).required(),
-    dob: Joi.date().greater(new Date('2012-01-01')).required()
+    mobileNumber: Joi.string().length(10).required(),
+    dob: Joi.date().greater(new Date('1930-01-01')).less(new Date('2012-01-01')).required()
 
 })
 
