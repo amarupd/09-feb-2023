@@ -12,7 +12,7 @@ app.post("/signup",(req,res)=>{
         console.log(error);
         return res.send(error.details)
     }
-    res.send('signed up succesfully')
+    res.send('signed up succesfully');
 })
 
 app.listen(port,()=>{
